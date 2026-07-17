@@ -1,0 +1,6 @@
+server:
+  port: ${MOCK_CARRIER_PORT:8003}
+trackflow:
+  callbackUrl: ${TRACKFLOW_CALLBACK_URL:http://127.0.0.1:8002/api/webhooks/carrier}
+  mockASecret: ${MOCK_A_SECRET:mock-a-local-secret}
+  mockBSecret: ${MOCK_B_SECRET:mock-b-local-secret}

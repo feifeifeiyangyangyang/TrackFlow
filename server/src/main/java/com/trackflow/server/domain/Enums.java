@@ -1,0 +1,8 @@
+package com.trackflow.server.domain;
+public final class Enums {
+  private Enums() {}
+  public enum NormalizedStatus { CREATED, PICKED_UP, IN_TRANSIT, ARRIVED_AT_STATION, OUT_FOR_DELIVERY, DELIVERY_FAILED, DELIVERED, RETURNING, RETURNED, CANCELLED, UNKNOWN }
+  public enum ValidationStatus { VALID, UNKNOWN_STATUS, INVALID_TRANSITION }
+  public enum EventSource { WEBHOOK, RECONCILIATION }
+  public enum AnomalyType { NO_UPDATE, INVALID_TRANSITION, STATUS_CONFLICT, REPEATED_DELIVERY_FAILURE, RECONCILIATION_DIFF, UNKNOWN_STATUS }
+}

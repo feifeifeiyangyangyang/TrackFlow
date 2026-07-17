@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: trackflow
+      MYSQL_USER: trackflow
+      MYSQL_PASSWORD: trackflow_dev_only
+      MYSQL_ROOT_PASSWORD: root_dev_only
+    ports: ["3307:3306"]
+    volumes: ["mysql_data:/var/lib/mysql"]
+    healthcheck: { test: ["CMD", "mysqladmin", "ping", "-h", "localhost"], interval: 10s, timeout: 5s, retries: 10 }
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: trackflow
+      RABBITMQ_DEFAULT_PASS: trackflow_dev_only
+    ports: ["5672:5672", "15672:15672"]
+    healthcheck: { test: ["CMD", "rabbitmq-diagnostics", "ping"], interval: 10s, timeout: 5s, retries: 10 }
+  server:
+    build: { context: ., dockerfile: server/Dockerfile }
+    environment:
+      SERVER_PORT: 8002
+      DB_URL: jdbc:mysql://mysql:3306/trackflow?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+      DB_USERNAME: trackflow
+      DB_PASSWORD: trackflow_dev_only
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+      MOCK_CARRIER_BASE_URL: http://mock-carrier:8003
+    ports: ["8002:8002"]
+    depends_on:
+      mysql: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+  mock-carrier:
+    build: { context: ., dockerfile: mock-carrier/Dockerfile }
+    environment:
+      MOCK_CARRIER_PORT: 8003
+      TRACKFLOW_CALLBACK_URL: http://server:8002/api/webhooks/carrier
+    ports: ["8003:8003"]
+    depends_on: [server]
+  web:
+    build: { context: web, dockerfile: Dockerfile }
+    ports: ["8001:80"]
+    depends_on: [server]
+volumes:
+  mysql_data:
