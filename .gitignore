@@ -7,3 +7,5 @@ dist/
 *.log
 .env
 out/
+test-results/
+playwright-report/
