@@ -53,7 +53,7 @@
         <div class="section-header">
           <div>
             <h3>{{ detail.shipment.tracking_no }}</h3>
-            <p class="page-subtitle">{{ detail.shipment.business_order_no }} · {{ detail.shipment.carrier_code }}</p>
+            <p class="page-subtitle">{{ detail.shipment.business_order_no }} / {{ detail.shipment.carrier_code }}</p>
           </div>
           <el-button type="warning" :loading="reconciling" @click="reconcile">发起对账</el-button>
         </div>
@@ -150,7 +150,7 @@ async function reconcile() {
     await http.post('/reconciliation/shipments/' + detail.value.shipment.id)
     detail.value = await http.get('/shipments/' + detail.value.shipment.id)
     await load()
-    ElMessage.success('对账完成，已重新计算状态')
+    ElMessage.success('对账任务已提交，可在对账任务页查看执行结果')
   } finally {
     reconciling.value = false
   }

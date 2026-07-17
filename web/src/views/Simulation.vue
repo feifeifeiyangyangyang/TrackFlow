@@ -13,7 +13,7 @@
         <div class="section-header">
           <div>
             <h3>场景控制台</h3>
-            <p class="page-subtitle">建议面试演示从重复推送或乱序到达开始，效果最直观。</p>
+            <p class="page-subtitle">面试演示建议从重复推送或乱序到达开始，效果最直观。</p>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
         <div class="section-header">
           <div>
             <h3>执行结果</h3>
-            <p class="page-subtitle">返回值可直接用于说明 mock 服务、Webhook 入库和状态重建链路。</p>
+            <p class="page-subtitle">返回值可直接用于说明 Mock 服务、Webhook 入库和状态重建链路。</p>
           </div>
           <el-button :disabled="!result" @click="copyResult">复制结果</el-button>
         </div>
@@ -111,6 +111,8 @@ const scenarioOptions = [
   { value: 'RETURN_AFTER_DELIVERED', label: 'RETURN_AFTER_DELIVERED 签收后退回', description: '制造非法或冲突流转，观察异常中心记录。' },
   { value: 'UNKNOWN_STATUS', label: 'UNKNOWN_STATUS 未知状态', description: '物流商返回未识别状态码，系统保留证据并生成异常。' },
   { value: 'DELIVERY_FAILED_RECOVERY', label: 'DELIVERY_FAILED_RECOVERY 失败恢复', description: '先派送失败再恢复签收，适合说明状态机转移规则。' },
+  { value: 'QUERY_HTTP_500', label: 'QUERY_HTTP_500 查询失败', description: '主动对账时物流商查询接口返回 500，验证任务重试。' },
+  { value: 'QUERY_TIMEOUT', label: 'QUERY_TIMEOUT 查询超时', description: '主动对账时物流商查询超时，验证超时映射和重试。' },
 ]
 
 const form = reactive({

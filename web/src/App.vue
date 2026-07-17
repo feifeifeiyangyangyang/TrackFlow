@@ -5,7 +5,7 @@
         <div class="brand-mark" aria-hidden="true">TF</div>
         <div>
           <h1>TrackFlow</h1>
-          <p>履约事件治理平台</p>
+          <p>物流履约事件治理平台</p>
         </div>
       </div>
 
@@ -44,13 +44,14 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const items = [
-  { to: '/dashboard', label: '数据概览', icon: '⌁' },
-  { to: '/shipments', label: '运单管理', icon: '◇' },
-  { to: '/events', label: '原始事件', icon: '≋' },
+  { to: '/dashboard', label: '数据概览', icon: '◎' },
+  { to: '/shipments', label: '运单管理', icon: '◆' },
+  { to: '/events', label: '原始事件', icon: '≡' },
+  { to: '/tasks', label: '处理任务', icon: '✓' },
   { to: '/anomalies', label: '异常中心', icon: '!' },
   { to: '/reconciliation', label: '对账任务', icon: '↻' },
   { to: '/carriers', label: '物流商配置', icon: '▣' },
-  { to: '/simulation', label: '故障模拟', icon: '▶' },
+  { to: '/simulation', label: '故障模拟', icon: '▦' },
 ]
 
 const route = useRoute()

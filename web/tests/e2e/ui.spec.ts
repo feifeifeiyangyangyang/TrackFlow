@@ -4,6 +4,7 @@ const pages = [
   ['/dashboard', '履约数据总览'],
   ['/shipments', '运单管理'],
   ['/events', '原始事件'],
+  ['/tasks', '处理任务'],
   ['/anomalies', '异常中心'],
   ['/reconciliation', '对账任务'],
   ['/carriers', '物流商配置'],
@@ -20,7 +21,7 @@ test.describe('TrackFlow console UI', () => {
     for (const [path, title] of pages) {
       await page.goto(path)
       await expect(page.locator('.page-title')).toHaveText(title)
-      await expect(page.locator('.nav-item')).toHaveCount(7)
+      await expect(page.locator('.nav-item')).toHaveCount(8)
 
       const hasOverflow = await page.evaluate(
         () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2,

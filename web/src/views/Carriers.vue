@@ -3,7 +3,7 @@
     <div class="page-header">
       <div>
         <h2 class="page-title">物流商配置</h2>
-        <p class="page-subtitle">查看接入的 Mock 物流商及查询地址。Webhook 密钥不会在前端明文展示。</p>
+        <p class="page-subtitle">查看已接入的 Mock 物流商和轨迹查询地址，Webhook 密钥不会在前端明文展示。</p>
       </div>
       <el-button :loading="loading" @click="load">刷新</el-button>
     </div>

@@ -9,7 +9,7 @@ export const statusText: Record<string, string> = {
   RETURNING: '退回中',
   RETURNED: '已退回',
   CANCELLED: '已取消',
-  UNKNOWN: '未知',
+  UNKNOWN: '未知状态',
 }
 
 export const statusType = (status: string) => {

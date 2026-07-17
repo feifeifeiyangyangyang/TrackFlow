@@ -3,7 +3,7 @@
     <div class="page-header">
       <div>
         <h2 class="page-title">履约数据总览</h2>
-        <p class="page-subtitle">聚合运单状态、异常分布和最近事件，帮助运营快速判断风险。</p>
+        <p class="page-subtitle">聚合运单状态、异常分布和最近事件，帮助运营快速判断履约风险。</p>
       </div>
       <el-button :loading="loading" @click="load">刷新数据</el-button>
     </div>
@@ -38,7 +38,7 @@
       <div class="section-header">
         <div>
           <h3>最近事件</h3>
-          <p class="page-subtitle">展示最新标准化事件，包括来源、状态和发生时间。</p>
+          <p class="page-subtitle">展示最新标准化事件，包括来源、状态和业务发生时间。</p>
         </div>
       </div>
       <div class="table-wrap">

@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const Dashboard = () => import('./views/Dashboard.vue')
 const Shipments = () => import('./views/Shipments.vue')
 const Events = () => import('./views/Events.vue')
+const Tasks = () => import('./views/Tasks.vue')
 const Anomalies = () => import('./views/Anomalies.vue')
 const Reconciliation = () => import('./views/Reconciliation.vue')
 const Carriers = () => import('./views/Carriers.vue')
@@ -15,6 +16,7 @@ export default createRouter({
     { path: '/dashboard', component: Dashboard },
     { path: '/shipments', component: Shipments },
     { path: '/events', component: Events },
+    { path: '/tasks', component: Tasks },
     { path: '/anomalies', component: Anomalies },
     { path: '/reconciliation', component: Reconciliation },
     { path: '/carriers', component: Carriers },

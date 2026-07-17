@@ -3,7 +3,7 @@
     <div class="page-header">
       <div>
         <h2 class="page-title">异常中心</h2>
-        <p class="page-subtitle">集中处理未知状态、非法流转、长时间未更新等履约风险。</p>
+        <p class="page-subtitle">集中处理未知状态、非法流转、对账差异等履约风险。</p>
       </div>
       <el-button :loading="loading" @click="load">刷新</el-button>
     </div>

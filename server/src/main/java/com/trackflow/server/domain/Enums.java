@@ -5,4 +5,5 @@ public final class Enums {
   public enum ValidationStatus { VALID, UNKNOWN_STATUS, INVALID_TRANSITION }
   public enum EventSource { WEBHOOK, RECONCILIATION }
   public enum AnomalyType { NO_UPDATE, INVALID_TRANSITION, STATUS_CONFLICT, REPEATED_DELIVERY_FAILURE, RECONCILIATION_DIFF, UNKNOWN_STATUS }
+  public enum AnomalyStatus { OPEN, PROCESSING, RESOLVED, IGNORED }
 }
